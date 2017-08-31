@@ -1,0 +1,22 @@
+﻿<Window x:Class="EDC19_host_computer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EDC19_host_computer"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="570.254" Width="1016.779">
+    <Window.Resources>
+    </Window.Resources>
+    <Grid Loaded="MainWindow_Loaded">
+        <Button x:Name="btnSpStart" Content="打开串口" HorizontalAlignment="Left" Height="28" Margin="935,10,0,0" VerticalAlignment="Top" Width="65" Click="onClick_SpStart"/>
+        <Button x:Name="btnSpSend" Content="发送消息" HorizontalAlignment="Left" Margin="935,43,0,0" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.051,0.9" Height="28" Click="onClick_SpSend"/>
+        <ComboBox x:Name="cbSpId" HorizontalAlignment="Left" Margin="860,10,0,0" VerticalAlignment="Top" Width="70" Height="28" DropDownOpened="onDDOpen_SpId"/>
+        <Label x:Name="txtSpId" Content="串口" HorizontalAlignment="Left" Margin="821,10,0,0" VerticalAlignment="Top" Height="28"/>
+        <ComboBox x:Name="cbSpBaudRate" HorizontalAlignment="Left" Margin="746,10,0,0" VerticalAlignment="Top" Width="70" Height="28" DropDownOpened="onDDOpen_SpBaudRate"/>
+        <Label x:Name="txtSpBaudRate" Content="波特率" HorizontalAlignment="Left" Margin="695,11,0,0" VerticalAlignment="Top" Height="28"/>
+        <Image x:Name="imgCamera" HorizontalAlignment="Left" Height="395" Margin="81,84,0,0" VerticalAlignment="Top" Width="661"/>
+
+
+    </Grid>
+</Window>
