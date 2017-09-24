@@ -89,7 +89,7 @@ namespace EDC19_host_computer
             }
         }
 
-        private void onClick_SpStart(object sender, RoutedEventArgs e)
+        private void onClick_SpStart(object sender, RoutedEventArgs e)//Open Port
         {
             if (!sp1.IsOpen)
             {
@@ -99,7 +99,7 @@ namespace EDC19_host_computer
                 }
                 else if (this.cbSpId.Text == "")
                 {
-                    MessageBox.Show("Please right port!");
+                    MessageBox.Show("Please select the right port!");
                 }
                 else
                 {
@@ -107,27 +107,28 @@ namespace EDC19_host_computer
                     sp1.PortName = this.cbSpId.Text;
                     sp1.Open();
                     this.btnSpStart.Content = "关闭串口";
-                    MessageBox.Show("sp1 is opend");
+                    MessageBox.Show("sp1 is opened","Port Changed into sp1");
                 }
             }
             else
             {
                 sp1.Close();
                 this.btnSpStart.Content = "打开串口";
-                MessageBox.Show("sp1 is closed");
+                MessageBox.Show("sp1 is closed","Port Closed");
             }
         }
 
-        private void onClick_SpSend(object sender, RoutedEventArgs e)
+        private void onClick_SpSend(object sender, RoutedEventArgs e)//Send Message to Selected Port
         {
-            sp1.WriteLine("Test");
+            if (!sp1.IsOpen) MessageBox.Show("No port is open!", "Error");
+            else sp1.WriteLine("Test");
         }
 
-        private void onDDOpen_SpBaudRate(object sender, EventArgs e)
+        private void onDDOpen_SpBaudRate(object sender, EventArgs e)//Select BaudRate
         {
         }
 
-        private void onDDOpen_SpId(object sender, EventArgs e)
+        private void onDDOpen_SpId(object sender, EventArgs e)//Select and Add Serial Port
         {
             spNames.Clear();
             int i = 0;

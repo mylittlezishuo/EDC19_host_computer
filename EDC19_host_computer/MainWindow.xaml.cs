@@ -27,7 +27,6 @@ namespace EDC19_host_computer
     {
         SerialPort sp1 = new SerialPort();
         WriteableBitmap bmp = null;
-
         public MainWindow()
         {
             InitializeComponent();
@@ -38,11 +37,12 @@ namespace EDC19_host_computer
 
         public void cameraView_init()
         {
-            BitmapImage bi = new BitmapImage();
+            /*BitmapImage bi = new BitmapImage();
             bi.BeginInit();
             Uri u = new Uri(System.Environment.CurrentDirectory + @"\lena.bmp", UriKind.RelativeOrAbsolute);
             bi.UriSource = u;
-            bi.EndInit();
+            bi.EndInit();*/
+            BitmapImage bi = new BitmapImage(new Uri(System.Environment.CurrentDirectory + @"\lena.bmp"));
             imgCamera.Source = bi;
         }
 
@@ -73,8 +73,8 @@ namespace EDC19_host_computer
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             imgCamera.Source = bmp;
-
-            var thread = new Thread(cameraLoop);
+            Thread thread = new Thread(cameraLoop);
+            thread.IsBackground = true;
             thread.Start();
         }
     }
